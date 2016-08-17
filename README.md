@@ -40,7 +40,22 @@ Sabendo qual andar é mais requisitado, ele irá ficar em stand-by nele, economi
 
 O arquivo com a definição de ambiente deve seguir os seguintes padrões:
 
+**Nome:** *ambiente-elevador.txt*
 
+| Formato Dentro do arquivo | Explicação |
+|:----:|:------:|
+|X,Y|**_X_** são os andares do predio & **_Y_** é a capacidade maxima de pessoas no elevador|
+
+Caso seja requisitado realizar varios testes com diferentes configurações basta inserir o arquivo com linhas separadas para cada tipo de teste, exemplo:
+
+| X e Y | Explicação | 
+|:---:|:---:|
+| 10,5 | Andares, Pessoas |
+| 50,15 | Andares, Pessoas |
+| 150,30| Andares, Pessoas |
+
+>**NOTA:** TODA linha deve ser separada por ENTER e NÂO deve haver mais de haver mais que o X e Y.
+>Andares e Pessoas na tabela é meramente ilustrativo para fins de entendimento.
 
 **Passageiros:**
 
