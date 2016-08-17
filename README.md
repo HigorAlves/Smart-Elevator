@@ -36,26 +36,44 @@ Sabendo qual andar é mais requisitado, ele irá ficar em stand-by nele, economi
 
 ##Padrão dos arquivos de entrada
 
-**Ambiente do elevador:**
+*Os arquivos devem seguir esta formatação padrão para que funcione sem complicações.*
 
-O arquivo com a definição de ambiente deve seguir os seguintes padrões:
+###Ambiente do elevador:
 
 **Nome:** *ambiente-elevador.txt*
 
-| Formato Dentro do arquivo | Explicação |
-|:----:|:------:|
-|X,Y|**_X_** são os andares do predio & **_Y_** é a capacidade maxima de pessoas no elevador|
+No arquivo devem ter um X,Y como no exemplo:
+```
+X,Y
+```
+Onde **_X_** é o número total de andares do predio onde o elevador esta, e **_Y_** é a capacidade maxima de passageiros que o elevador suporta.
+> **NOTA:** *X* e *Y* devem ser inteiros!
 
 Caso seja requisitado realizar varios testes com diferentes configurações basta inserir o arquivo com linhas separadas para cada tipo de teste, exemplo:
+```
+10,5
+5,8
+150,34
+```
+TODA linha deve ser separada por ENTER, e NÂO deve haver mais que o X e Y.
 
-| X e Y | Explicação | 
-|:---:|:---:|
-| 10,5 | Andares, Pessoas |
-| 50,15 | Andares, Pessoas |
-| 150,30| Andares, Pessoas |
+###Passageiros:
 
->**NOTA:** TODA linha deve ser separada por ENTER e NÂO deve haver mais de haver mais que o X e Y.
->Andares e Pessoas na tabela é meramente ilustrativo para fins de entendimento.
+**Nome:** *passageiros.txt*
 
-**Passageiros:**
+Dentro do arquivo cada passageiro tem 3 variaveis para cada passageiro *X Y Z* as quais DEVEM estar separadas por espaço. O significado de cada uma esta explicado na tabela logo abaixo.
 
+| X | Y | Z |
+|:-:|:-:|:-:|
+|Identificador unico da pessoa (Inteiro)|Andar onde ela está (Inteiro)|Andar para a qual ela irá (Inteiro)|
+
+Caso queira adicionar mais de um passageiro por andar siga o exemplo:
+```
+X Y Z,X Y Z,X Y Z,X Y Z
+
+X Y Z,X Y Z
+```
+Neste exemplo acima, vemos que os passageiros separados por **,** isso faz com que o programa reconheça que cada vez q ele ler a **,** ira saber que é um novo passageiro.
+>**NOTA:** passageiros com mesmo *Y* (andar onde está) estão sempre na mesma linha.
+
+Entre as duas linhas de passageiros vemos que há um espaço (ENTER), este espaço é usado para avisar o programa que ao chegar nesta leitura ele sabera que esta sendo chamado de outro andar.
