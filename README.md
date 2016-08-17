@@ -61,19 +61,20 @@ TODA linha deve ser separada por ENTER, e NÂO deve haver mais que o X e Y.
 
 **Nome:** *passageiros.txt*
 
-Dentro do arquivo cada passageiro tem 3 variaveis para cada passageiro *X Y Z* as quais DEVEM estar separadas por espaço. O significado de cada uma esta explicado na tabela logo abaixo.
+Dentro do arquivo cada passageiro tem 2 variaveis para cada passageiro *X Y* as quais DEVEM estar separadas por espaço. O significado de cada uma esta explicado na tabela logo abaixo.
 
-| X | Y | Z |
-|:-:|:-:|:-:|
-|Identificador unico da pessoa (Inteiro)|Andar onde ela está (Inteiro)|Andar para a qual ela irá (Inteiro)|
+| X | Y |
+|:-:|:-:|
+|Andar onde ela está (Inteiro)|Andar para a qual ela irá (Inteiro)|
 
-Caso queira adicionar mais de um passageiro por andar siga o exemplo:
+Caso queira adicionar mais de um por andar siga o exemplo:
 ```
-X Y Z,X Y Z,X Y Z,X Y Z
+X Y,X Y,X Y,X Y
 
-X Y Z,X Y Z
+X Y,X Y
 ```
 Neste exemplo acima, vemos que os passageiros separados por **,** isso faz com que o programa reconheça que cada vez q ele ler a **,** ira saber que é um novo passageiro.
->**NOTA:** passageiros com mesmo *Y* (andar onde está) estão sempre na mesma linha.
+>**NOTA:** passageiros com mesmo *Y* *(andar onde está)* estão sempre na mesma linha.
 
 Entre as duas linhas de passageiros vemos que há um espaço (ENTER), este espaço é usado para avisar o programa que ao chegar nesta leitura ele sabera que esta sendo chamado de outro andar.
+>Tambem ajuda para uma melhor visualização e organização.
