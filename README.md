@@ -38,5 +38,9 @@ Sabendo qual andar é mais requisitado, ele irá ficar em stand-by nele, economi
 
 **Ambiente do elevador:**
 
+O arquivo com a definição de ambiente deve seguir os seguintes padrões:
+
+
+
 **Passageiros:**
 
