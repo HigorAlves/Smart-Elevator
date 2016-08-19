@@ -3,15 +3,6 @@
 **Data de entrega 05/08**
 >Dupla Higor Alves e Pedro Oliveira.
 
-###Ambiente do Elevador
-
->O ambietne do elevador é definido pelo arquivo de entrada.
-
-**_Deve conter no arquivo:_**
-
-- [ ] Número de Andares do Prédio.
-- [ ] Número maximo de passegeiros que o elevador comporta.
-
 >A velocidade do elevador é de 1 Jepslon.
 
 ###Estrategias Usadas
