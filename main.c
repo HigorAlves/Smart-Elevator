@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
   if (strcmp(metodo,"fifo") == 0){
     printf("FIFO foi o escolhido\n");
   }
-  else if (metodo == "SJF"){
+  else if (strcmp(metodo == "SJF") == 0{
     printf("SJF foi o escolhido\n");
   }
   else{
