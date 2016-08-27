@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 /*lib do GETOPT */
 #include <unistd.h>
+#include "funcoes.h"
+
 
 /* Mostra a ajuda */
 void show_help(char *q_andares) {
@@ -15,9 +19,10 @@ void show_help(char *q_andares) {
   exit(-1) ;
 }
 
+
 int main(int argc, char **argv) {
 
-  int opcao;
+  int opcao,i = 0;
   char *q_andares = NULL, *capacidade = NULL, *Passageiros = NULL, *metodo = NULL;
   /* Variavel para o nome do arquivo dos passageiros */
 
@@ -44,6 +49,19 @@ int main(int argc, char **argv) {
     }
   }
 
+  /* Passa o metodo para lower case */
+  for (i = 0; metodo[i]; i++) metodo[i] = tolower(metodo[i]);
 
-  return 0 ;
+  /* Caso o usuario escolha um dos metodos ou nenhum deles */
+  if (strcmp(metodo,"fifo") == 0){
+    printf("FIFO foi o escolhido\n");
+  }
+  else if (metodo == "SJF"){
+    printf("SJF foi o escolhido\n");
+  }
+  else{
+    printf("O metodo nao foi escolhido ou a opcao inserida é invalida!\n Tente usar -o FIFO ou -o SJF\n");
+  }
+
+return 0 ;
 }
