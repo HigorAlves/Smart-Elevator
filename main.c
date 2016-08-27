@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 /* Mostra a ajuda */
-void show_help(char *Passageiros) {
+void show_help(char *q_andares) {
   fprintf(stderr, "\
     [uso] ./tp1 <opcoes>\n\
     -h         mostra essa tela e sai.\n\
@@ -16,15 +16,15 @@ void show_help(char *Passageiros) {
 
 int main(int argc, char **argv) {
 
-  int opt;
+  int opcao;
   char *q_andares = NULL, *capacidade = NULL, *Passageiros = NULL;
   /* Variavel para o nome do arquivo dos passageiros */
 
   /* Chama a tela de ajuda */
   if (argc < 2) show_help(argv[0]);
 
-  while((opt = getopt(argc,argv,"hn:a:c:p")) > 0){
-    switch (opt){
+  while((opcao = getopt(argc,argv,"hn:a:c:p")) > 0){
+    switch (opcao){
       case 'h':
         show_help(argv[0]);
         break;
@@ -32,15 +32,15 @@ int main(int argc, char **argv) {
         q_andares = optarg;
       break;
       case 'c':
-
+        capacidade = optarg;
       break;
       case 'p':
-
+      Passageiros = optarg;
       break;
     }
   }
 
-  printf("Andares: %c\n", *q_andares);
+  printf("Andares: %s \n", q_andares);
 
   return 0 ;
 }
