@@ -53,10 +53,10 @@ int main(int argc, char **argv) {
   for (i = 0; metodo[i]; i++) metodo[i] = tolower(metodo[i]);
 
   /* Caso o usuario escolha um dos metodos ou nenhum deles */
-  if (strcmp(metodo,"fifo") == 0){
+  if (strcmp(metodo, "fifo") == 0){
     printf("FIFO foi o escolhido\n");
   }
-  else if (strcmp(metodo == "SJF") == 0{
+  else if (strcmp(metodo, "SJF") == 0){
     printf("SJF foi o escolhido\n");
   }
   else{
