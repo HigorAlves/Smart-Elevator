@@ -49,6 +49,18 @@ int main(int argc, char **argv) {
     }
   }
 
+  FILE *IN;
+  IN = fopen (Passageiros,"r");
+
+  /* caso o arquivo não seja aberto */
+  if (IN == NULL){
+    printf("O arquivo não pode ser aberto!\n");
+    exit(1);
+  }
+
+  /* Por cuidado vamos zerar o buffer */
+  fflush(stdout);
+
   /* Passa o metodo para lower case */
   for (i = 0; metodo[i]; i++) metodo[i] = tolower(metodo[i]);
 
