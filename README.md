@@ -5,3 +5,7 @@
 
 ##Fluxograma FIFO
 ![](http://i.imgur.com/jsM1SqC.jpg)
+
+#Ideias
+
+- Colocar um argumento para entrada do ambiente do elvador ser um arquivo?
