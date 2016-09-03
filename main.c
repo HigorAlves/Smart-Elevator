@@ -7,7 +7,7 @@
 #include "funcoes.h"
 
 
-#define DELIMITER "!? .,-\n"
+#define DELIMITER ",-\n"
 
 /* Mostra a ajuda */
 void show_help(char *q_andares) {
@@ -24,66 +24,57 @@ void show_help(char *q_andares) {
 
 
 int main(int argc, char **argv) {
+  char *word = NULL, *arq_elevador = NULL, *arq_passageiros = NULL, *estrategia = NULL;
+  int i = 0, opcao = 0, quant_andares = 0, capacidade = 0;
+  long size = 0;
 
-  int opcao, i = 0;
-  char *q_andares = NULL, *capacidade = NULL, *arq_passageiro = NULL, *metodo = NULL, *arq_elevador = NULL;
-  /* Variavel para o nome do arquivo dos passageiros */
-
-  /* Chama a tela de ajuda */
   if (argc < 2) show_help(argv[0]);
 
-  while((opcao = getopt(argc,argv,"hn:a:c:e:p:o:")) > 0){
+  while((opcao = getopt(argc,argv,"hn:a:c:e:p:o:")) != -1){
     switch (opcao){
       case 'h':
         show_help(argv[0]);
         break;
       case 'a':
-        q_andares = optarg;
-      break;
+        quant_andares = atoll(optarg);
+        break;
       case 'c':
-        capacidade = optarg;
-      break;
+        capacidade = atoll(optarg);
+        break;
       case 'e':
         arq_elevador = optarg;
-      break;
+        break;
       case 'p':
         arq_passageiros = optarg;
-      break;
+        break;
       case 'o':
-        metodo = optarg;
-      break;
+        estrategia = optarg;
+        break;
     }
   }
 
   /*Abertura dos arquivos conforme o nome que o usuario pede*/
-  //FILE *IN_passageiros;
-  //FILE *IN_elevador;
-  //IN_passageiros = fopen (arq_passageiros,"r");
-  //IN_elevador = fopen (arq_elevador,"r");
+  FILE *IN_passageiros;
+  FILE *IN_elevador;
+  IN_passageiros = fopen (arq_passageiros,"r");
+  IN_elevador = fopen (arq_elevador,"r");
 
   /* caso o arquivo não seja aberto */
-  //if (IN_passageiros == NULL /*|| IN_elevador == NULL*/){
-    //printf("Os arquivos não puderam ser abertos! Ou algum esta em falta.\n");
-    //exit(1);
-  //}
-
-  /* Por cuidado vamos zerar o buffer */
-  //fflush(stdout);
-
-  /* Passa o metodo para lower case */
-  for (i = 0; metodo[i]; i++) metodo[i] = tolower(metodo[i]);
-
-  /* Caso o usuario escolha um dos metodos ou nenhum deles */
-  if (strcmp(metodo, "fifo") == 0){
-    printf("FIFO foi o escolhido\n");
-    //estrategia_fifo(arq_passageiros);
+  if (IN_passageiros == NULL || IN_elevador == NULL){
+    printf("Os arquivos não puderam ser abertos! Ou algum esta em falta.\n");
+    exit(1);
   }
-  else if (strcmp(metodo, "SJF") == 0){
-    printf("SJF foi o escolhido\n");
-  }
-  else{
-    printf("O metodo nao foi escolhido ou a opcao inserida é invalida!\n Tente usar -o FIFO ou -o SJF\n");
-  }
+
+  /* Função para pegar o tamanho do arquivo e voltar ao inicio dele */
+  fseek(IN_passageiros, 0L, SEEK_END);
+  size = ftell(IN_passageiros);
+  rewind(IN_passageiros);
+
+  /* Separa a string e manda para a função escolhida */
+   while ((fscanf (IN_passageiros, "%m[^"DELIMITER"]%*["DELIMITER"]", &word)) != EOF){
+     i++;
+     estrategia_fifo(word, i, size);
+   }
 
 return 0 ;
 }
