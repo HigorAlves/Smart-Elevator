@@ -10,22 +10,25 @@ typedef struct {
   int onde_vai;
 } _Passageiros;
 
-void estrategia_fifo(char *arq){
-  int n = 255, i=0;
+void estrategia_fifo(char *arq, int i, int size){
   _Passageiros *passageiros;
-  char *pch, *word;
+  char *pch = NULL;
 
-  passageiros = malloc (n * sizeof(_Passageiros));
+  passageiros = malloc (size * sizeof( _Passageiros));
 
+  /* Pega onde está o passageiro */
   pch = strtok (arq," ,.-");
+  passageiros[i].onde_ta = atoi (pch);
+
+  /* Pega o para onde vai o passageiro */
   while (pch != NULL)
   {
-    printf ("%s\n",pch);
-    i = atoi (pch);
+    passageiros[i].onde_vai = atoi (pch);
     pch = strtok (NULL, " ,.-");
   }
 
-  printf("%i", i+1);
+  printf("%i ", passageiros[i].onde_ta);
+  printf("%i\n", passageiros[i].onde_vai);
 
   /* limpando os mallocs */
   free(passageiros);
