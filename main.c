@@ -11,11 +11,12 @@
 void show_help(char *q_andares) {
   fprintf(stderr, "\
     [uso] ./tp1 <opcoe> -o <metodo>\n\
-    -h         mostra essa tela e sai.\n\
-    -a ANDARES    seta a quantidade de andares.\n\
-    -p ARQ_PASSAGEIROS nome do arquivo dos passageiros\n\
-    -c CAPACIDADE   seta a capacidade do elevador.\n\
-    -o METODO use FIFO ou SJF como estrategia\n");
+    -h  Mostra a tela de ajuda e sai dela. \n\
+    -a  Seta a quantidade de andares.\n\
+    -c  Seta a capacidade do elevador.\n\
+    -e  Definir um arquivo de ambiente para o elevador? \n\
+    -p  Nome do arquivo dos passageiros.\n\
+    -o  Use FIFO ou SJF como estrategia. \n");
   exit(-1) ;
 }
 
@@ -29,7 +30,7 @@ int main(int argc, char **argv) {
   /* Chama a tela de ajuda */
   if (argc < 2) show_help(argv[0]);
 
-  while((opcao = getopt(argc,argv,"hn:a:c:p:o:")) > 0){
+  while((opcao = getopt(argc,argv,"hn:a:c:e:p:o:")) > 0){
     switch (opcao){
       case 'h':
         show_help(argv[0]);
