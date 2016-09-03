@@ -1,16 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "funcoes.h"
 
-#define DELIMITER "!? .,-\n"
+#define DELIMITER " -\n"
+
+typedef struct {
+  int onde_ta;
+  int onde_vai;
+} _Passageiros;
 
 void estrategia_fifo(char *arq){
-  int n = 255;
-  int *m_passageiro = (int *) malloc(sizeof(int));
+  int n = 255, i=0;
+  _Passageiros *passageiros;
+  char *pch, *word;
 
-  //while ((fscanf (arq, "%m[^"DELIMITER"]", &passageiro))) != EOF{
+  passageiros = malloc (n * sizeof(_Passageiros));
 
-    printf("OI");
-  //}
+  pch = strtok (arq," ,.-");
+  while (pch != NULL)
+  {
+    printf ("%s\n",pch);
+    i = atoi (pch);
+    pch = strtok (NULL, " ,.-");
+  }
 
+  printf("%i", i+1);
+
+  /* limpando os mallocs */
+  free(passageiros);
 }
