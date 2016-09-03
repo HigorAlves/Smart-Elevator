@@ -25,8 +25,8 @@ void show_help(char *q_andares) {
 
 int main(int argc, char **argv) {
 
-  int opcao,i = 0;
-  char *q_andares = NULL, *capacidade = NULL, *arq_passageiros = "passageiros.txt", *metodo = NULL, *arq_elevador = "elevador.txt";
+  int opcao, i = 0;
+  char *q_andares = NULL, *capacidade = NULL, *arq_passageiro = NULL, *metodo = NULL, *arq_elevador = NULL;
   /* Variavel para o nome do arquivo dos passageiros */
 
   /* Chama a tela de ajuda */
@@ -56,19 +56,19 @@ int main(int argc, char **argv) {
   }
 
   /*Abertura dos arquivos conforme o nome que o usuario pede*/
-  FILE *IN_passageiros;
-  FILE *IN_elevador;
-  IN_passageiros = fopen (arq_passageiros,"r");
-  IN_elevador = fopen (arq_elevador,"r");
+  //FILE *IN_passageiros;
+  //FILE *IN_elevador;
+  //IN_passageiros = fopen (arq_passageiros,"r");
+  //IN_elevador = fopen (arq_elevador,"r");
 
   /* caso o arquivo não seja aberto */
-  if (IN_passageiros == NULL || IN_elevador == NULL){
-    printf("Os arquivos não puderam ser abertos! Ou algum esta em falta.\n");
-    exit(1);
-  }
+  //if (IN_passageiros == NULL /*|| IN_elevador == NULL*/){
+    //printf("Os arquivos não puderam ser abertos! Ou algum esta em falta.\n");
+    //exit(1);
+  //}
 
   /* Por cuidado vamos zerar o buffer */
-  fflush(stdout);
+  //fflush(stdout);
 
   /* Passa o metodo para lower case */
   for (i = 0; metodo[i]; i++) metodo[i] = tolower(metodo[i]);
@@ -76,6 +76,7 @@ int main(int argc, char **argv) {
   /* Caso o usuario escolha um dos metodos ou nenhum deles */
   if (strcmp(metodo, "fifo") == 0){
     printf("FIFO foi o escolhido\n");
+    //estrategia_fifo(arq_passageiros);
   }
   else if (strcmp(metodo, "SJF") == 0){
     printf("SJF foi o escolhido\n");
