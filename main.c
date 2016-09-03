@@ -10,7 +10,7 @@
 #define DELIMITER ",-\n"
 
 /* Mostra a ajuda */
-void show_help(char *q_andares) {
+void show_help(char *quant_andares) {
   fprintf(stderr, "\
     [uso] ./tp1 <opcoe> -o <metodo>\n\
     -h  Mostra a tela de ajuda e sai dela. \n\
@@ -86,7 +86,7 @@ int main(int argc, char **argv) {
       }
     }
   }
-  
+
   /* Função para pegar o tamanho do arquivo e voltar ao inicio dele */
   fseek(IN_passageiros, 0L, SEEK_END);
   size_passageiro = ftell(IN_passageiros);
