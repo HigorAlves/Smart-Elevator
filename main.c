@@ -26,8 +26,9 @@ void show_help(char *q_andares) {
 int main(int argc, char **argv) {
   char *word = NULL, *arq_elevador = NULL, *arq_passageiros = NULL, *estrategia = NULL;
   int i = 0, opcao = 0, quant_andares = 0, capacidade = 0;
-  long size = 0;
+  long size_passageiro = 0;
 
+  /* Funçao do GetOpt */
   if (argc < 2) show_help(argv[0]);
 
   while((opcao = getopt(argc,argv,"hn:a:c:e:p:o:")) != -1){
@@ -60,20 +61,25 @@ int main(int argc, char **argv) {
   IN_elevador = fopen (arq_elevador,"r");
 
   /* caso o arquivo não seja aberto */
-  if (IN_passageiros == NULL || IN_elevador == NULL){
+  if (IN_passageiros == NULL){
     printf("Os arquivos não puderam ser abertos! Ou algum esta em falta.\n");
     exit(1);
   }
 
   /* Função para pegar o tamanho do arquivo e voltar ao inicio dele */
   fseek(IN_passageiros, 0L, SEEK_END);
-  size = ftell(IN_passageiros);
+  size_passageiro = ftell(IN_passageiros);
   rewind(IN_passageiros);
+
+  /* Passa a estrategia para minusculo*/
+  for(i = 0; estrategia[i]; i++) estrategia[i] = tolower(estrategia[i]);
 
   /* Separa a string e manda para a função escolhida */
    while ((fscanf (IN_passageiros, "%m[^"DELIMITER"]%*["DELIMITER"]", &word)) != EOF){
      i++;
-     estrategia_fifo(word, i, size);
+     if (strcmp(estrategia, "fifo") == 0){
+       estrategia_fifo(word, i, size_passageiro, capacidade, quant_andares);
+     }
    }
 
 return 0 ;
