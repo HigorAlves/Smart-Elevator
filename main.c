@@ -14,7 +14,7 @@ void show_help(char *q_andares) {
     -h  Mostra a tela de ajuda e sai dela. \n\
     -a  Seta a quantidade de andares.\n\
     -c  Seta a capacidade do elevador.\n\
-    -e  Definir um arquivo de ambiente para o elevador? \n\
+    -e  Nome do arquivo do elevador. \n\
     -p  Nome do arquivo dos passageiros.\n\
     -o  Use FIFO ou SJF como estrategia. \n");
   exit(-1) ;
@@ -24,7 +24,7 @@ void show_help(char *q_andares) {
 int main(int argc, char **argv) {
 
   int opcao,i = 0;
-  char *q_andares = NULL, *capacidade = NULL, *Passageiros = NULL, *metodo = NULL;
+  char *q_andares = NULL, *capacidade = NULL, *arq_passageiros = "passageiros.txt", *metodo = NULL, *arq_elevador = "elevador.txt";
   /* Variavel para o nome do arquivo dos passageiros */
 
   /* Chama a tela de ajuda */
@@ -41,8 +41,11 @@ int main(int argc, char **argv) {
       case 'c':
         capacidade = optarg;
       break;
+      case 'e':
+        arq_elevador = optarg;
+      break;
       case 'p':
-        Passageiros = optarg;
+        arq_passageiros = optarg;
       break;
       case 'o':
         metodo = optarg;
@@ -50,11 +53,14 @@ int main(int argc, char **argv) {
     }
   }
 
-  FILE *IN;
-  IN = fopen (Passageiros,"r");
+  /*Abertura dos arquivos conforme o nome que o usuario pede*/
+  FILE *IN_passageiros;
+  FILE *IN_elevador;
+  IN_passageiros = fopen (arq_passageiros,"r");
+  IN_elevador = fopen (arq_elevador,"r");
 
   /* caso o arquivo não seja aberto */
-  if (IN == NULL){
+  if (IN_passageiros == NULL || IN_elevador == NULL){
     printf("O arquivo não pode ser aberto!\n");
     exit(1);
   }
