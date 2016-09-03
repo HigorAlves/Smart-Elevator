@@ -56,9 +56,7 @@ int main(int argc, char **argv) {
 
   /*Abertura dos arquivos conforme o nome que o usuario pede*/
   FILE *IN_passageiros;
-  FILE *IN_elevador;
   IN_passageiros = fopen (arq_passageiros,"r");
-  IN_elevador = fopen (arq_elevador,"r");
 
   /* caso o arquivo não seja aberto */
   if (IN_passageiros == NULL){
@@ -66,6 +64,29 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
+  /* Se a entrada for com o arquivo */
+  if (arq_elevador != NULL){
+    char *pch = NULL;
+    /* Abrindo arquivo do elevador */
+    FILE *IN_elevador;
+    IN_elevador = fopen (arq_elevador,"r");
+
+    printf("Esta usando o arquivo do elevador para configurar o ambiente.\n");
+    /* Pega a primeira quantos andares tem o predio */
+    fscanf (IN_elevador, "%m[^"DELIMITER"]%*["DELIMITER"]", &word);
+    quant_andares = atoi (word);
+    rewind(IN_elevador);
+
+    /* Pega qual a capacidade de passageiros do elevador*/
+    while ((fscanf (IN_elevador, "%m[^"DELIMITER"]%*["DELIMITER"]", &word)) != EOF){
+      pch = strtok (word," ,.-");
+      while (pch != NULL){
+        capacidade = atoi (pch);
+        pch = strtok (NULL, " ,.-");
+      }
+    }
+  }
+  
   /* Função para pegar o tamanho do arquivo e voltar ao inicio dele */
   fseek(IN_passageiros, 0L, SEEK_END);
   size_passageiro = ftell(IN_passageiros);
@@ -79,6 +100,10 @@ int main(int argc, char **argv) {
      i++;
      if (strcmp(estrategia, "fifo") == 0){
        estrategia_fifo(word, i, size_passageiro, capacidade, quant_andares);
+     }else if (strcmp(estrategia, "sjf") == 0){
+
+     }else{
+       printf("Nenhum metodo selecionado!");
      }
    }
 
