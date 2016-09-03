@@ -7,6 +7,8 @@
 #include "funcoes.h"
 
 
+#define DELIMITER "!? .,-\n"
+
 /* Mostra a ajuda */
 void show_help(char *q_andares) {
   fprintf(stderr, "\
