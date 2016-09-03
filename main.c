@@ -63,7 +63,7 @@ int main(int argc, char **argv) {
 
   /* caso o arquivo não seja aberto */
   if (IN_passageiros == NULL || IN_elevador == NULL){
-    printf("O arquivo não pode ser aberto!\n");
+    printf("Os arquivos não puderam ser abertos! Ou algum esta em falta.\n");
     exit(1);
   }
 
