@@ -92,8 +92,6 @@ int main(int argc, char **argv) {
   size_passageiro = ftell(IN_passageiros);
   rewind(IN_passageiros);
 
-  char *pch;
-
   /* Passa a estrategia para minusculo*/
   for(i = 0; estrategia[i]; i++) estrategia[i] = tolower(estrategia[i]);
   i = 0;
@@ -101,7 +99,11 @@ int main(int argc, char **argv) {
   while ((fscanf (IN_passageiros, "%m[^"DELIMITER"]%*["DELIMITER"]", &word)) != EOF){
     i++;
     if (strcmp(estrategia,"fifo") == 0){
-      estrategia_fifo(word,i ,size_passageiro ,capacidade ,quant_andares ,jepslon,teste);
+      fifo(word,i ,size_passageiro ,capacidade ,quant_andares ,jepslon);
+    }else if (strcmp(estrategia, "sjf") == 0){
+
+    }else{
+      printf("O metodo escolhido %s, nao é valido.");
     }
   }
 

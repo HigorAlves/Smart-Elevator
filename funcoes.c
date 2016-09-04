@@ -13,15 +13,24 @@ typedef struct {
   int tava ;
 } _Elevador;
 
-void estrategia_fifo(char *arq, int i, int size, int capacidade, int quant_andares, int jepslon, int teste){
-
+void fifo(char *arq, int i, int size, int capacidade, int quant_andares, int jepslon){
+  /* Variaveis */
   _Passageiros *passageiros;
   _Elevador elevador;
   char *pch = NULL;
+  int flag;
+
   passageiros = malloc (size * sizeof( _Passageiros));
 
     if (i > capacidade){
-      printf("Ta lotado %i\n",i);
+      for (i = 0; i > capacidade; i++){
+        if(passageiros[i].onde_vai != elevador.onde_ta){
+            flag = abs(elevador.onde_ta - passageiros[i].onde_vai);
+            elevador.onde_tava = elevador.onde_ta;
+            elevador.onde_ta = passageiros[i].onde_vai;
+            jepslon =+ flag + 2;
+          }
+      }
     }
 
     /* Pega onde está o passageiro */
@@ -60,4 +69,8 @@ void estrategia_fifo(char *arq, int i, int size, int capacidade, int quant_andar
 
   /* limpando os mallocs */
   free(passageiros);
+}
+
+void sjf(){
+
 }
