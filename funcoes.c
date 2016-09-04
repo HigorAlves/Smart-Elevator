@@ -13,22 +13,21 @@ typedef struct {
   int tava ;
 } _Elevador;
 
-void fifo(char *arq, int i, int size, int capacidade, int quant_andares, int jepslon){
+int fifo(char *arq, int i, int size, int capacidade, int quant_andares, int jepslon){
   /* Variaveis */
   _Passageiros *passageiros;
   _Elevador elevador;
   char *pch = NULL;
-  int flag;
+  int flag,j;
 
   passageiros = malloc (size * sizeof( _Passageiros));
 
     if (i > capacidade){
       for (i = 0; i > capacidade; i++){
-        if(passageiros[i].onde_vai != elevador.onde_ta){
-            flag = abs(elevador.onde_ta - passageiros[i].onde_vai);
-            elevador.onde_tava = elevador.onde_ta;
-            elevador.onde_ta = passageiros[i].onde_vai;
-            jepslon =+ flag + 2;
+        if(passageiros[i].onde_vai != elevador.to_aqui){
+            flag = abs(elevador.to_aqui - passageiros[i].onde_vai);
+            elevador.tava = elevador.to_aqui;
+            elevador.to_aqui = passageiros[i].onde_vai;
           }
       }
     }
@@ -47,8 +46,16 @@ void fifo(char *arq, int i, int size, int capacidade, int quant_andares, int jep
     if (elevador.to_aqui != elevador.tava){
       if (elevador.tava == 0){
       }else{
-        printf("Mudou\n");
-        //entrega os do andar
+        printf("Mudou \n");
+        for (j = 0; j > elevador.to_aqui; j++){
+          if(passageiros[j].onde_vai != elevador.to_aqui){
+              flag = abs(elevador.to_aqui - passageiros[j].onde_vai);
+              elevador.tava = elevador.to_aqui;
+              elevador.to_aqui = passageiros[j].onde_vai;
+              jepslon =+ flag + 2;
+              printf("%i - %i\n", flag, jepslon);
+            }
+        }
       }
     }
     elevador.tava = elevador.to_aqui;
@@ -64,11 +71,12 @@ void fifo(char *arq, int i, int size, int capacidade, int quant_andares, int jep
       }
     }
 
-    printf ("%i, %i %i - %i %i\n", i, passageiros[i].onde_ta, passageiros[i].onde_vai, elevador.to_aqui,elevador.tava);
+    //printf ("%i, %i %i - %i %i - %i\n", i, passageiros[i].onde_ta, passageiros[i].onde_vai, elevador.to_aqui,elevador.tava, flag);
 
 
   /* limpando os mallocs */
   free(passageiros);
+  return (jepslon);
 }
 
 void sjf(){

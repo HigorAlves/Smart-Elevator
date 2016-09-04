@@ -103,7 +103,7 @@ int main(int argc, char **argv) {
     }else if (strcmp(estrategia, "sjf") == 0){
 
     }else{
-      printf("O metodo escolhido %s, nao é valido.");
+      printf("O metodo escolhido %s, nao é valido.", estrategia);
     }
   }
 
