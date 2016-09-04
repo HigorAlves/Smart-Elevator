@@ -7,7 +7,7 @@
 #include "funcoes.h"
 
 
-#define DELIMITER ",-\n"
+#define DELIMITER ",\n"
 
 /* Mostra a ajuda */
 void show_help(char *quant_andares) {
@@ -25,7 +25,7 @@ void show_help(char *quant_andares) {
 
 int main(int argc, char **argv) {
   char *word = NULL, *arq_elevador = NULL, *arq_passageiros = NULL, *estrategia = NULL;
-  int i = 0, opcao = 0, quant_andares = 0, capacidade = 0;
+  int i = 0, opcao = 0, quant_andares = 0, capacidade = 0, jepslon = 0;
   long size_passageiro = 0;
 
   /* Funçao do GetOpt */
@@ -92,20 +92,16 @@ int main(int argc, char **argv) {
   size_passageiro = ftell(IN_passageiros);
   rewind(IN_passageiros);
 
+  char *pch;
+
   /* Passa a estrategia para minusculo*/
   for(i = 0; estrategia[i]; i++) estrategia[i] = tolower(estrategia[i]);
+  i = 0;
 
-  /* Separa a string e manda para a função escolhida */
-   while ((fscanf (IN_passageiros, "%m[^"DELIMITER"]%*["DELIMITER"]", &word)) != EOF){
-     i++;
-     if (strcmp(estrategia, "fifo") == 0){
-       estrategia_fifo(word, i, size_passageiro, capacidade, quant_andares);
-     }else if (strcmp(estrategia, "sjf") == 0){
-
-     }else{
-       printf("Nenhum metodo selecionado!");
-     }
-   }
+  while ((fscanf (IN_passageiros, "%m[^"DELIMITER"]%*["DELIMITER"]", &word)) != EOF){
+    i++;
+    estrategia_fifo(word,i ,size_passageiro ,capacidade ,quant_andares ,jepslon);
+  }
 
 return 0 ;
 }
