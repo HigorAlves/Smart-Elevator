@@ -25,7 +25,7 @@ void show_help(char *quant_andares) {
 
 int main(int argc, char **argv) {
   char *word = NULL, *arq_elevador = NULL, *arq_passageiros = NULL, *estrategia = NULL;
-  int i = 0, opcao = 0, quant_andares = 0, capacidade = 0, jepslon = 0;
+  int i = 0, opcao = 0, quant_andares = 0, capacidade = 0, jepslon = 0, teste=0;
   long size_passageiro = 0;
 
   /* Funçao do GetOpt */
@@ -100,7 +100,9 @@ int main(int argc, char **argv) {
 
   while ((fscanf (IN_passageiros, "%m[^"DELIMITER"]%*["DELIMITER"]", &word)) != EOF){
     i++;
-    estrategia_fifo(word,i ,size_passageiro ,capacidade ,quant_andares ,jepslon);
+    if (strcmp(estrategia,"fifo") == 0){
+      estrategia_fifo(word,i ,size_passageiro ,capacidade ,quant_andares ,jepslon,teste);
+    }
   }
 
 return 0 ;
