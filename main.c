@@ -2,12 +2,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-/*lib do GETOPT */
-#include <unistd.h>
+#include <unistd.h> //LIB do getopt
 #include "funcoes.h"
-
-
-#define DELIMITER ",\n"
 
 /* Mostra a ajuda */
 void show_help(char *quant_andares) {
@@ -24,9 +20,12 @@ void show_help(char *quant_andares) {
 
 
 int main(int argc, char **argv) {
-  char *word = NULL, *arq_elevador = NULL, *arq_passageiros = NULL, *estrategia = NULL;
-  int i = 0, opcao = 0, quant_andares = 0, capacidade = 0, jepslon = 0, teste=0;
-  long size_passageiro = 0;
+
+  char *arq_passageiro = NULL, *arq_elevador = NULL, *estrategia = NULL;
+  int opcao, quant_andares = 0, capacidade = 0, i = 0;
+
+  _passageiro passageiros;
+  _elevador elevador;
 
   /* Funçao do GetOpt */
   if (argc < 2) show_help(argv[0]);
@@ -46,7 +45,7 @@ int main(int argc, char **argv) {
         arq_elevador = optarg;
         break;
       case 'p':
-        arq_passageiros = optarg;
+        arq_passageiro = optarg;
         break;
       case 'o':
         estrategia = optarg;
@@ -54,58 +53,44 @@ int main(int argc, char **argv) {
     }
   }
 
-  /*Abertura dos arquivos conforme o nome que o usuario pede*/
-  FILE *IN_passageiros;
-  IN_passageiros = fopen (arq_passageiros,"r");
+  /* Abertura do arquivo dos passageiros */
+  FILE *IN_passageiro;
+  IN_passageiro = fopen(arq_passageiro,"r");
 
-  /* caso o arquivo não seja aberto */
-  if (IN_passageiros == NULL){
-    printf("Os arquivos não puderam ser abertos! Ou algum esta em falta.\n");
+  /* Verifica se o arquivo foi aberto */
+  if (IN_passageiro == NULL){
+    printf("Não foi possivel abrir o arquivo do passageiro.");
     exit(1);
   }
 
-  /* Se a entrada for com o arquivo */
+  /* Verificar se vai abrir com arquivo do elevador */
   if (arq_elevador != NULL){
-    char *pch = NULL;
-    /* Abrindo arquivo do elevador */
     FILE *IN_elevador;
     IN_elevador = fopen (arq_elevador,"r");
 
-    printf("Esta usando o arquivo do elevador para configurar o ambiente.\n");
-    /* Pega a primeira quantos andares tem o predio */
-    fscanf (IN_elevador, "%m[^"DELIMITER"]%*["DELIMITER"]", &word);
-    quant_andares = atoi (word);
-    rewind(IN_elevador);
-
-    /* Pega qual a capacidade de passageiros do elevador*/
-    while ((fscanf (IN_elevador, "%m[^"DELIMITER"]%*["DELIMITER"]", &word)) != EOF){
-      pch = strtok (word," ,.-");
-      while (pch != NULL){
-        capacidade = atoi (pch);
-        pch = strtok (NULL, " ,.-");
-      }
-    }
-  }
-
-  /* Função para pegar o tamanho do arquivo e voltar ao inicio dele */
-  fseek(IN_passageiros, 0L, SEEK_END);
-  size_passageiro = ftell(IN_passageiros);
-  rewind(IN_passageiros);
-
-  /* Passa a estrategia para minusculo*/
-  for(i = 0; estrategia[i]; i++) estrategia[i] = tolower(estrategia[i]);
-  i = 0;
-
-  while ((fscanf (IN_passageiros, "%m[^"DELIMITER"]%*["DELIMITER"]", &word)) != EOF){
-    i++;
-    if (strcmp(estrategia,"fifo") == 0){
-      fifo(word,i ,size_passageiro ,capacidade ,quant_andares ,jepslon);
-    }else if (strcmp(estrategia, "sjf") == 0){
-
+    /* Se não for possivel abrir o arquivo do elevador */
+    if (IN_passageiro == NULL){
+      printf("Não foi possivel abrir o arquivo do elevador!");
+      exit(1);
     }else{
-      printf("O metodo escolhido %s, nao é valido.", estrategia);
+      /* Pega a quantidade de andares e a capacidade do elevador */
+      while ((fscanf (IN_elevador, "%d", &elevador.andares)) && (fscanf (IN_elevador, "%d", &elevador.capacidade)) != EOF);
     }
   }
 
-return 0 ;
+  /* Passa a entrada do metodo para lowercase */
+   for(i = 0; estrategia[i]; i++) estrategia[i] = tolower(estrategia[i]);
+
+/* Pega os valores do arquivo do passageeiro */
+   while ((fscanf (IN_passageiro, "%d", &passageiros.chamada)) && (fscanf (IN_passageiro, "%d", &passageiros.destino)) != EOF){
+     if (strcmp (estrategia, "fifo") == 0){
+       //faz a função fifo
+     }else if(strcmp (estrategia, "sjf") == 0){
+       //faz a funçao sjf
+     }else{
+       printf("Função escolhida não consta no programa!");
+     }
+   }
+
+return 0;
 }

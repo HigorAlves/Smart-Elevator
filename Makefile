@@ -5,6 +5,6 @@ clean:
 	clear
 	@echo "Arquivos limpados com sucesso!"
 executa:
-	./tp1 -p p.txt -c 10 -o fifo -a 10
+	./tp1 -p passageiros.txt -c 10 -o fifo -a 10
 executa2:
-	./tp1 -e e.txt -p p.txt -o fifo 
+	./tp1 -e elevador.txt -p passageiros.txt -o fifo

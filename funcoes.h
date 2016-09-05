@@ -1,8 +1,17 @@
 #ifndef FUNCOES_H
 #define FUNCOES_H
 
-int fifo(char *arq, int i, int size, int capacidade, int quant_andares, int jepslon);
+#include <stdio.h>
+#include <stdlib.h>
 
-void sjf();
+typedef struct elevador{
+  int andares;
+  int capacidade;
+} _elevador;
+
+typedef struct passageiro{
+  int chamada;
+  int destino;
+} _passageiro;
 
 #endif
