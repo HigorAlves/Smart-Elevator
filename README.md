@@ -4,3 +4,11 @@
 
 #DOCUMENTAÇÃO
 Toda a documentação do programa se encontra na [**WIKI**](https://github.com/HigorAlves/Smart-Elevator/wiki) do projeto.
+
+**Trabalho feito por:** *Higor Henrique Alves e Pedro Oliveira*.
+
+**Professor:** Leonardo Chaves Dutra Rocha
+
+Universidade Federal de São João del Rei Departamento de Ciência da Computação Bacharelado em Ciência da Computação*
+
+**Materia:** Algoritmos e Estruturas de Dados III.
