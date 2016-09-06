@@ -6,6 +6,7 @@
 #include <math.h>
 #include <malloc.h>
 
+
 typedef struct pessoa{
   int onde_ta;
   int onde_vai;
@@ -24,8 +25,8 @@ typedef struct fila{
 void criaLista(filinha *pointer);
 int primeiroLista(filinha pointer, Pessoa *passa);
 int filaVazia(filinha pointer);
-int coloca(filinha *pointer, Pessoa pass);
-int remove(filinha *pointer, Pessoa *pass);
-int mostra(filinha *pointer);
+int colocar(filinha *pointer, Pessoa pass);
+int remover(filinha *pointer, Pessoa *pass);
+int mostrar(filinha *pointer);
 
 #endif

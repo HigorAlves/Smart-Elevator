@@ -18,7 +18,7 @@
     }
   }
 
-  int coloca(filinha *pointer, Pessoa pass){
+  int colocar(filinha *pointer, Pessoa pass){
     Node *newmemo;
     newmemo = (Node*) malloc(sizeof(Node));
 
@@ -33,7 +33,7 @@
       return 1;
   }
 
-  int remove (filinha *pointer, Pessoa *pass){
+  int remover (filinha *pointer, Pessoa *pass){
     Node *aux;
     if(pointer->inicio == NULL){
       return 0;
@@ -44,7 +44,7 @@
     return 1;
   }
 
-  int mostra(filinha *pointer){
+  int mostrar(filinha *pointer){
     Node *aux;
     if (filaVazia (*pointer)) {
       printf("fila vazia\n");
