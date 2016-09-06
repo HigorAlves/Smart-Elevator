@@ -61,19 +61,19 @@ int main(int argc, char **argv) {
   }
 
   /* Verificar se vai abrir com arquivo do elevador */
-  /*if (arq_elevador != NULL){
+  if (arq_elevador != NULL){
     FILE *IN_elevador;
     IN_elevador = fopen (arq_elevador,"r");
 
     /* Se não for possivel abrir o arquivo do elevador */
-    /*if (IN_passageiro == NULL){
+    if (IN_passageiro == NULL){
       printf("Não foi possivel abrir o arquivo do elevador!");
       exit(1);
     }else{
       /* Pega a quantidade de andares e a capacidade do elevador */
-      /*while ((fscanf (IN_elevador, "%d", &elevador.andares)) && (fscanf (IN_elevador, "%d", &elevador.capacidade)) != EOF);
+      //while ((fscanf (IN_elevador, "%d", &elevador.andares)) && (fscanf (IN_elevador, "%d", &elevador.capacidade)) != EOF);
     }
-  }*/
+  }
 
   /* Passa a entrada do metodo para lowercase */
    for(i = 0; estrategia[i]; i++) estrategia[i] = tolower(estrategia[i]);
