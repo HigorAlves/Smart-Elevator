@@ -22,6 +22,8 @@ typedef struct fila{
   Node *final;
 }filinha;
 
+void show_help(char *estrategia);
+
 void criaLista(filinha *pointer);
 int primeiroLista(filinha pointer, Pessoa *passa);
 int filaVazia(filinha pointer);

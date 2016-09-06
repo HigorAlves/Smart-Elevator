@@ -1,19 +1,5 @@
 #include "funcoes.h"
 
-/* Mostra a ajuda */
-void show_help(char *quant_andares) {
-  fprintf(stderr, "\
-    [uso] ./tp1 <opcoe> -o <metodo>\n\
-    -h  Mostra a tela de ajuda e sai dela. \n\
-    -a  Seta a quantidade de andares.\n\
-    -c  Seta a capacidade do elevador.\n\
-    -e  Nome do arquivo do elevador. \n\
-    -p  Nome do arquivo dos passageiros.\n\
-    -o  Use FIFO ou SJF como estrategia. \n");
-  exit(-1) ;
-}
-
-
 int main(int argc, char **argv) {
 
   char *arq_passageiro = NULL, *arq_elevador = NULL, *estrategia = NULL;

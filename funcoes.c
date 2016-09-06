@@ -1,5 +1,20 @@
 #include "funcoes.h"
 
+/* Mostra a ajuda */
+void show_help(char *estrategia) {
+  fprintf(stderr, "\
+    [uso] ./tp1 <opcoe> -o <metodo>\n\
+    -h  Mostra a tela de ajuda e sai dela. \n\
+    -a  Seta a quantidade de andares.\n\
+    -c  Seta a capacidade do elevador.\n\
+    -e  Nome do arquivo do elevador. \n\
+    -p  Nome do arquivo dos passageiros.\n\
+    -o  Use FIFO ou SJF como estrategia. \n");
+  exit(-1) ;
+}
+
+  /* FUNÇÃO FIFO */
+
   void criaLista(filinha *pointer){
     pointer->inicio = NULL;
     pointer->final = NULL;
