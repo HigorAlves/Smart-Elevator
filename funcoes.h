@@ -29,9 +29,10 @@ typedef struct fila{
 
 void show_help(char *estrategia);
 
-int mudou_andar(int onde_ta, int *tava);
 void VerificaAmbiente(int onde_ta, int onde_vai, int andares);
+int mudou_andar(int onde_ta, int *tava);
 int lotou(int *lotado, int capacidade);
+void entrega(filinha *pointer, int *jepslon_andar, int *jepslon_porta, int *elevador_ta, Pessoa *pass);
 
 void criaLista(filinha *pointer);
 int primeiroLista(filinha pointer, Pessoa *passa);

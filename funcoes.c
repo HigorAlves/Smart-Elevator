@@ -24,7 +24,6 @@ void VerificaAmbiente(int onde_ta, int onde_vai, int andares){
 }
 
 int lotou(int *lotado, int capacidade){
-  //printf("%i\n", *lotado);
   *lotado =+ 1;
   if (*lotado >= capacidade){
 
@@ -33,16 +32,36 @@ int lotou(int *lotado, int capacidade){
   return 1;
 }
 
+void entrega(filinha *pointer, int *jepslon_andar, int *jepslon_porta, int *elevador_aqui, Pessoa *eu){
+  Node *aux2;
+  //se a fila estiver vazia
+  if (filaVazia (*pointer)) {
+    printf("Todos entregues\n");
+  }else
+  aux2 = pointer->inicio;
+  *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
+  *elevador_aqui = aux2->elemento.onde_vai;
+  //remover (pointer,&);
+  while (aux2->proximo != NULL) {
+    aux2 = aux2->proximo;
+    *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
+    *elevador_aqui = aux2->elemento.onde_vai;
+  }
+
+}
+
 int mudou_andar(int onde_ta, int *tava){
   if (*tava == 0){
     *tava = onde_ta;
-  }else if(*tava != onde_ta){
+  }else if(*tava != onde_ta){ //Mudou de andar; Contar jepslon
     *tava = onde_ta;
-  }else{
+    return 1;
+  }else{ //Recebe o valor de onde ta so por segurança
     *tava = onde_ta;
+    return 0;
   }
-  return *tava;
 }
+
   /* FUNÇÃO FIFO */
 
   void criaLista(filinha *pointer){
@@ -60,6 +79,8 @@ int mudou_andar(int onde_ta, int *tava){
   int filaVazia(filinha pointer){
     if (pointer.inicio == NULL && pointer.final == NULL){
       return 1;
+    }else{
+      return 0;
     }
   }
 

@@ -3,7 +3,7 @@
 int main(int argc, char **argv) {
 
   char *arq_passageiro = NULL, *arq_elevador = NULL, *estrategia = NULL;
-  int opcao, quant_andares = 0, capacidade = 0, i = 0, lotado = 0, tava;
+  int opcao, quant_andares = 0, capacidade = 0, i = 0, lotado = 0, tava = 0, jepslon_porta = 0, jepslon_andar =0, elevador_ta = 1;
 
   filinha *pointer;
   Pessoa eu;
@@ -68,7 +68,10 @@ int main(int argc, char **argv) {
    while (fscanf(IN_passageiro,"%d",&eu.onde_ta) && fscanf(IN_passageiro,"%d",&eu.onde_vai)!=EOF){
      if (strcmp (estrategia, "fifo") == 0){
        VerificaAmbiente(eu.onde_ta, eu.onde_vai, elevador.andares);
-       mudou_andar(eu.onde_ta, &tava);
+       if (mudou_andar(eu.onde_ta, &tava) == 1){
+         printf("OI\n");
+         entrega(pointer, &jepslon_andar, &jepslon_porta, &elevador_ta, &eu);
+       }
        lotou(&lotado, elevador.capacidade);
        colocar(pointer,eu);
      }else if(strcmp (estrategia, "sjf") == 0){
@@ -77,6 +80,7 @@ int main(int argc, char **argv) {
        printf("Função escolhida não consta no programa!");
      }
    }
+   //remover (pointer,&eu); //cada remover retira um da pilha
    mostrar(pointer);
 return 0;
 }
