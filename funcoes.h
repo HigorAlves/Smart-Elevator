@@ -7,6 +7,11 @@
 #include <malloc.h>
 #include <unistd.h>
 
+typedef struct elevador{
+  int andares;
+  int capacidade;
+} _elevador;
+
 typedef struct pessoa{
   int onde_ta;
   int onde_vai;
@@ -23,6 +28,10 @@ typedef struct fila{
 }filinha;
 
 void show_help(char *estrategia);
+
+int mudou_andar(int onde_ta, int *tava);
+void VerificaAmbiente(int onde_ta, int onde_vai, int andares);
+int lotou(int *lotado, int capacidade);
 
 void criaLista(filinha *pointer);
 int primeiroLista(filinha pointer, Pessoa *passa);

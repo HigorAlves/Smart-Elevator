@@ -3,12 +3,12 @@
 int main(int argc, char **argv) {
 
   char *arq_passageiro = NULL, *arq_elevador = NULL, *estrategia = NULL;
-  int opcao, quant_andares = 0, capacidade = 0, i = 0;
+  int opcao, quant_andares = 0, capacidade = 0, i = 0, lotado = 0, tava;
 
   filinha *pointer;
   Pessoa eu;
   pointer = (filinha*) malloc(sizeof(filinha));
-  //_elevador elevador;
+  _elevador elevador;
 
   /* Funçao do GetOpt */
   if (argc < 2) show_help(argv[0]);
@@ -57,16 +57,19 @@ int main(int argc, char **argv) {
       exit(1);
     }else{
       /* Pega a quantidade de andares e a capacidade do elevador */
-      //while ((fscanf (IN_elevador, "%d", &elevador.andares)) && (fscanf (IN_elevador, "%d", &elevador.capacidade)) != EOF);
+      while ((fscanf (IN_elevador, "%d", &elevador.andares)) && (fscanf (IN_elevador, "%d", &elevador.capacidade)) != EOF);
     }
   }
 
   /* Passa a entrada do metodo para lowercase */
    for(i = 0; estrategia[i]; i++) estrategia[i] = tolower(estrategia[i]);
 
-/* Pega os valores do arquivo do passageeiro */
+   /* Pega os valores do arquivo do passageeiro */
    while (fscanf(IN_passageiro,"%d",&eu.onde_ta) && fscanf(IN_passageiro,"%d",&eu.onde_vai)!=EOF){
      if (strcmp (estrategia, "fifo") == 0){
+       VerificaAmbiente(eu.onde_ta, eu.onde_vai, elevador.andares);
+       mudou_andar(eu.onde_ta, &tava);
+       lotou(&lotado, elevador.capacidade);
        colocar(pointer,eu);
      }else if(strcmp (estrategia, "sjf") == 0){
        //faz a funçao sjf

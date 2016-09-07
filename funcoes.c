@@ -13,6 +13,36 @@ void show_help(char *estrategia) {
   exit(-1) ;
 }
 
+void VerificaAmbiente(int onde_ta, int onde_vai, int andares){
+  if (onde_ta > andares || onde_ta < 0){
+    printf("O andar %i onde o passageiro está não existe no ambiente do elevador.\nReveja o arquivo para retornar a executar o programa.", onde_ta);
+    exit(1);
+  }else if (onde_vai > andares || onde_vai <0){
+    printf("O andar %i onde o passageiro deseja ir não existe no ambiente do elevador.\nReveja o arquivo para retornar a executar o programa.", onde_vai);
+    exit(1);
+  }
+}
+
+int lotou(int *lotado, int capacidade){
+  //printf("%i\n", *lotado);
+  *lotado =+ 1;
+  if (*lotado >= capacidade){
+
+  }
+
+  return 1;
+}
+
+int mudou_andar(int onde_ta, int *tava){
+  if (*tava == 0){
+    *tava = onde_ta;
+  }else if(*tava != onde_ta){
+    *tava = onde_ta;
+  }else{
+    *tava = onde_ta;
+  }
+  return *tava;
+}
   /* FUNÇÃO FIFO */
 
   void criaLista(filinha *pointer){
