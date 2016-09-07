@@ -41,11 +41,15 @@ void entrega(filinha *pointer, int *jepslon_andar, int *jepslon_porta, int *elev
   aux2 = pointer->inicio;
   *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
   *elevador_aqui = aux2->elemento.onde_vai;
-  //remover (pointer,&);
+  printf("JEPANDAR:%i elevaqui:%i\n", *jepslon_andar, *elevador_aqui);
+  free(pointer->inicio);
+
   while (aux2->proximo != NULL) {
     aux2 = aux2->proximo;
     *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
     *elevador_aqui = aux2->elemento.onde_vai;
+    printf("JEPANDAR:%i elevaqui:%i\n", *jepslon_andar, *elevador_aqui);
+    //remover (*pointer, *eu);
   }
 
 }
