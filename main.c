@@ -67,9 +67,10 @@ int main(int argc, char **argv) {
    /* Pega os valores do arquivo do passageeiro */
    while (fscanf(IN_passageiro,"%d",&eu.onde_ta) && fscanf(IN_passageiro,"%d",&eu.onde_vai)!=EOF){
      if (strcmp (estrategia, "fifo") == 0){
+       /* Se o passageiro estiver respeitando o ambiente do elevador */
        VerificaAmbiente(eu.onde_ta, eu.onde_vai, elevador.andares);
+       /* Verifica se a proxima entrada vai mudar de andar, caso ela mude vamos entregar os que ja entraram. */
        if (mudou_andar(eu.onde_ta, &tava) == 1){
-         printf("OI\n");
          entrega(pointer, &jepslon_andar, &jepslon_porta, &elevador_ta, &eu);
        }
        lotou(&lotado, elevador.capacidade);
@@ -81,6 +82,7 @@ int main(int argc, char **argv) {
      }
    }
    //remover (pointer,&eu); //cada remover retira um da pilha
+   printf("PORTA:%i\n", jepslon_porta);
    mostrar(pointer);
 return 0;
 }
