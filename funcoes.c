@@ -33,23 +33,42 @@ void entrega(filinha *pointer, int *jepslon_andar, int *jepslon_porta, int *elev
   if (aux2->elemento.onde_ta != *elevador_aqui){
     *jepslon_porta = *jepslon_porta + 1;
     *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
-    *elevador_aqui = aux2->elemento.onde_ta;
+    *elevador_aqui = aux2->elemento.onde_vai;
+    printf("%i c ",*elevador_aqui);
+    printf("%i b %i ",aux2->elemento.onde_ta, aux2->elemento.onde_vai);
+    printf("%i a %i \n",*jepslon_porta, *jepslon_andar );
   }
 
   if (aux2->elemento.onde_vai != *elevador_aqui) {
     *jepslon_porta = *jepslon_porta + 1;
     *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
-    *elevador_aqui = aux2->elemento.onde_ta;
-
+    *elevador_aqui = aux2->elemento.onde_vai;
+    printf("%i c ",*elevador_aqui);
+    printf("%i b %i ",aux2->elemento.onde_ta, aux2->elemento.onde_vai);
+    printf("%i a %i\n",*jepslon_porta, *jepslon_andar );
   }
 
   while (aux2->proximo != NULL) {
     aux2 = aux2->proximo;
-    if (*elevador_aqui != aux2->elemento.onde_vai) {
+    /* Se o elevador não estiver no mesmo andar */
+    if (aux2->elemento.onde_ta != *elevador_aqui){
       *jepslon_porta = *jepslon_porta + 1;
+      *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
+      *elevador_aqui = aux2->elemento.onde_vai;
+      printf("%i c ",*elevador_aqui);
+      printf("%i b %i ",aux2->elemento.onde_ta, aux2->elemento.onde_vai);
+      printf("%i a %i\n",*jepslon_porta, *jepslon_andar );
     }
-    *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
-    *elevador_aqui = aux2->elemento.onde_vai;
+
+    if (aux2->elemento.onde_vai != *elevador_aqui) {
+      *jepslon_porta = *jepslon_porta + 1;
+      *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
+      *elevador_aqui = aux2->elemento.onde_vai;
+      printf("%i c ",*elevador_aqui);
+      printf("%i b %i ",aux2->elemento.onde_ta, aux2->elemento.onde_vai);
+      printf("%i a %i\n",*jepslon_porta, *jepslon_andar );
+    }
+
   }
 }
 
