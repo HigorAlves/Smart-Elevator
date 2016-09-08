@@ -33,49 +33,36 @@ void entrega(filinha *pointer, int *jepslon_andar, int *jepslon_porta, int *elev
   if (aux2->elemento.onde_ta != *elevador_aqui){
     *jepslon_porta = *jepslon_porta + 1;
     *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
-    *elevador_aqui = aux2->elemento.onde_vai;
-    printf("%i c ",*elevador_aqui);
-    printf("%i b %i ",aux2->elemento.onde_ta, aux2->elemento.onde_vai);
-    printf("%i a %i \n",*jepslon_porta, *jepslon_andar );
+    *elevador_aqui = aux2->elemento.onde_ta;
   }
 
   if (aux2->elemento.onde_vai != *elevador_aqui) {
     *jepslon_porta = *jepslon_porta + 1;
     *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
     *elevador_aqui = aux2->elemento.onde_vai;
-    printf("%i c ",*elevador_aqui);
-    printf("%i b %i ",aux2->elemento.onde_ta, aux2->elemento.onde_vai);
-    printf("%i a %i\n",*jepslon_porta, *jepslon_andar );
   }
 
   while (aux2->proximo != NULL) {
     aux2 = aux2->proximo;
     /* Se o elevador não estiver no mesmo andar */
+    printf("\n Onde ta:%i elevador:%i\n", aux2->elemento.onde_ta, *elevador_aqui);
     if (aux2->elemento.onde_ta != *elevador_aqui){
-      *jepslon_porta = *jepslon_porta + 1;
       *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
       *elevador_aqui = aux2->elemento.onde_vai;
-      printf("%i c ",*elevador_aqui);
-      printf("%i b %i ",aux2->elemento.onde_ta, aux2->elemento.onde_vai);
-      printf("%i a %i\n",*jepslon_porta, *jepslon_andar );
     }
 
     if (aux2->elemento.onde_vai != *elevador_aqui) {
-      *jepslon_porta = *jepslon_porta + 1;
+      //*jepslon_porta = *jepslon_porta + 1;
       *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
       *elevador_aqui = aux2->elemento.onde_vai;
-      printf("%i c ",*elevador_aqui);
-      printf("%i b %i ",aux2->elemento.onde_ta, aux2->elemento.onde_vai);
-      printf("%i a %i\n",*jepslon_porta, *jepslon_andar );
     }
 
   }
+  *jepslon_porta = *jepslon_porta + 1;
 }
 
 int mudou_andar(int onde_ta, int *tava){
-  if (*tava == 0){
-    *tava = onde_ta;
-  }else if(*tava != onde_ta){ //Mudou de andar; Contar jepslon
+ if(*tava != onde_ta){ //Mudou de andar; Contar jepslon
     *tava = onde_ta;
     return 1;
   }else{ //Recebe o valor de onde ta so por segurança

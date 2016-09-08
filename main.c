@@ -3,7 +3,7 @@
 int main(int argc, char **argv) {
 
   char *arq_passageiro = NULL, *arq_elevador = NULL, *estrategia = NULL;
-  int opcao, quant_andares = 0, capacidade = 0, i = 0, lotado = 0, tava = 0, jepslon_porta = 0, jepslon_andar =0, elevador_ta = 1;
+  int opcao, quant_andares = 0, capacidade = 0, i = 0, lotado = 0, tava = 1, jepslon_porta = 0, jepslon_andar =0, elevador_ta = 1;
 
   filinha *pointer;
   Pessoa eu;
@@ -65,20 +65,22 @@ int main(int argc, char **argv) {
    for(i = 0; estrategia[i]; i++) estrategia[i] = tolower(estrategia[i]);
 
    /* Pega os valores do arquivo do passageeiro */
-   while (fscanf(IN_passageiro,"%d",&eu.onde_ta) && fscanf(IN_passageiro,"%d",&eu.onde_vai)!=EOF){
+   while (fscanf(IN_passageiro,"%d",&eu.onde_ta) && fscanf(IN_passageiro,"%d",&eu.onde_vai) != EOF){
      if (strcmp (estrategia, "fifo") == 0){
        /* Se o passageiro estiver respeitando o ambiente do elevador */
        VerificaAmbiente(eu.onde_ta, eu.onde_vai, elevador.andares);
        /* Se o elevador estiver lotado vamos entregar quem esta la dentro. */
        lotado = lotado + 1;
        if (lotado > elevador.capacidade){
-         printf("Lotou\n");
          entrega(pointer, &jepslon_andar, &jepslon_porta, &elevador_ta, &eu);
+         printf("entrei 1\n");
          lotado = 0;
+
        }else
        /* Verifica se a proxima entrada vai mudar de andar, caso ela mude vamos entregar os que ja entraram. */
        if (mudou_andar(eu.onde_ta, &tava) == 1){
          entrega(pointer, &jepslon_andar, &jepslon_porta, &elevador_ta, &eu);
+         printf("entrei 2\n");
          lotado = 0;
        }
        colocar(pointer,eu);
@@ -89,7 +91,7 @@ int main(int argc, char **argv) {
      }
    }
    //remover (pointer,&eu); //cada remover retira um da pilha
-   printf("PORTA:%i JEP:%i\n", jepslon_porta, jepslon_andar);
+   printf("PORTA:%i JEP:%i\n", jepslon_porta -1, jepslon_andar);
    mostrar(pointer);
 return 0;
 }
