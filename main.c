@@ -73,14 +73,12 @@ int main(int argc, char **argv) {
        lotado = lotado + 1;
        if (lotado > elevador.capacidade){
          entrega(pointer, &jepslon_andar, &jepslon_porta, &elevador_ta, &eu);
-         printf("entrei 1\n");
          lotado = 0;
 
        }else
        /* Verifica se a proxima entrada vai mudar de andar, caso ela mude vamos entregar os que ja entraram. */
        if (mudou_andar(eu.onde_ta, &tava) == 1){
          entrega(pointer, &jepslon_andar, &jepslon_porta, &elevador_ta, &eu);
-         printf("entrei 2\n");
          lotado = 0;
        }
        colocar(pointer,eu);
