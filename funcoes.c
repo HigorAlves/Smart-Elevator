@@ -31,21 +31,20 @@ void entrega(filinha *pointer, int *jepslon_andar, int *jepslon_porta, int *elev
     aux2 = pointer->inicio;
       /* Se o elevador não estiver no mesmo andar */
   if (aux2->elemento.onde_ta != *elevador_aqui){
-    *jepslon_porta = *jepslon_porta + 1;
+  //  *jepslon_porta = *jepslon_porta + 1;
     *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
     *elevador_aqui = aux2->elemento.onde_ta;
   }
 
   if (aux2->elemento.onde_vai != *elevador_aqui) {
-    *jepslon_porta = *jepslon_porta + 1;
+    //*jepslon_porta = *jepslon_porta + 1;
     *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
     *elevador_aqui = aux2->elemento.onde_vai;
   }
-
+  *jepslon_porta = *jepslon_porta + 1;
   while (aux2->proximo != NULL) {
     aux2 = aux2->proximo;
     /* Se o elevador não estiver no mesmo andar */
-    printf("\n Onde ta:%i elevador:%i\n", aux2->elemento.onde_ta, *elevador_aqui);
     if (aux2->elemento.onde_ta != *elevador_aqui){
       *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
       *elevador_aqui = aux2->elemento.onde_vai;

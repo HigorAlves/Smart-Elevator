@@ -91,7 +91,7 @@ int main(int argc, char **argv) {
      }
    }
    //remover (pointer,&eu); //cada remover retira um da pilha
-   printf("PORTA:%i JEP:%i\n", jepslon_porta -1, jepslon_andar);
+   printf("PORTA:%i JEP:%i\n", jepslon_porta - 1, jepslon_andar);
    mostrar(pointer);
 return 0;
 }
