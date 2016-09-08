@@ -23,45 +23,35 @@ void VerificaAmbiente(int onde_ta, int onde_vai, int andares){
   }
 }
 
-int lotou(int *lotado, int capacidade){
-  *lotado =+ 1;
-  if (*lotado >= capacidade){
-
-  }
-
-  return 1;
-}
-
 void entrega(filinha *pointer, int *jepslon_andar, int *jepslon_porta, int *elevador_aqui, Pessoa *eu){
   Node *aux2;
-  //se a fila estiver vazia
   if (filaVazia (*pointer)) {
     printf("Todos entregues\n");
   }else
-  aux2 = pointer->inicio;
-  /* Se o elevador não estiver no mesmo andar */
-  if (aux2->elemento.onde_vai != *elevador_aqui) {
-    *jepslon_porta = *jepslon_porta + 1;
-  }
-  *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
-  *elevador_aqui = aux2->elemento.onde_vai;
-  printf("JEPANDAR:%i elevaqui:%i\n", *jepslon_andar, *elevador_aqui);
-  free(pointer->inicio);
-
-  while (aux2->proximo != NULL) {
-    aux2 = aux2->proximo;
-    
-    /* Se o elevador não estiver no mesmo andar */
-    if (aux2->elemento.onde_vai != *elevador_aqui) {
+    aux2 = pointer->inicio;
+      /* Se o elevador não estiver no mesmo andar */
+    if (aux2->elemento.onde_ta != *elevador_aqui){
       *jepslon_porta = *jepslon_porta + 1;
+      *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
+      *elevador_aqui = aux2->elemento.onde_ta;
     }
 
+  if (aux2->elemento.onde_vai != *elevador_aqui) {
+    *jepslon_porta = *jepslon_porta + 1;
     *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
-    *elevador_aqui = aux2->elemento.onde_vai;
+    *elevador_aqui = aux2->elemento.onde_ta;
 
-    printf("JEPANDAR:%i elevaqui:%i\n", *jepslon_andar, *elevador_aqui);
   }
 
+  printf("onde ta:%i onde vai:%i\n", aux2->elemento.onde_ta, aux2->elemento.onde_vai);
+  while (aux2->proximo != NULL) {
+    aux2 = aux2->proximo;
+    if (*elevador_aqui != aux2->elemento.onde_vai) {
+      *jepslon_porta = *jepslon_porta + 1;
+    }
+    *jepslon_andar = *jepslon_andar + abs(aux2->elemento.onde_vai - *elevador_aqui);
+    *elevador_aqui = aux2->elemento.onde_vai;
+  }
 }
 
 int mudou_andar(int onde_ta, int *tava){

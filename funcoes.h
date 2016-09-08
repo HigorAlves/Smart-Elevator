@@ -31,7 +31,6 @@ void show_help(char *estrategia);
 
 void VerificaAmbiente(int onde_ta, int onde_vai, int andares);
 int mudou_andar(int onde_ta, int *tava);
-int lotou(int *lotado, int capacidade);
 void entrega(filinha *pointer, int *jepslon_andar, int *jepslon_porta, int *elevador_ta, Pessoa *pass);
 
 void criaLista(filinha *pointer);

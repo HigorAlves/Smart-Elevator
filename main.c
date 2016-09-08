@@ -69,11 +69,19 @@ int main(int argc, char **argv) {
      if (strcmp (estrategia, "fifo") == 0){
        /* Se o passageiro estiver respeitando o ambiente do elevador */
        VerificaAmbiente(eu.onde_ta, eu.onde_vai, elevador.andares);
+       /* Se o elevador estiver lotado vamos entregar quem esta la dentro. */
+       lotado = lotado + 1;
+       if (lotado > elevador.capacidade){
+         printf("Lotou\n");
+         entrega(pointer, &jepslon_andar, &jepslon_porta, &elevador_ta, &eu);
+         lotado = 0;
+       }else
        /* Verifica se a proxima entrada vai mudar de andar, caso ela mude vamos entregar os que ja entraram. */
+       //printf("\n Onde ta:%i, tava:%i\n", eu.onde_ta, tava);
        if (mudou_andar(eu.onde_ta, &tava) == 1){
          entrega(pointer, &jepslon_andar, &jepslon_porta, &elevador_ta, &eu);
+         lotado = 0;
        }
-       lotou(&lotado, elevador.capacidade);
        colocar(pointer,eu);
      }else if(strcmp (estrategia, "sjf") == 0){
        //faz a funçao sjf
@@ -82,7 +90,7 @@ int main(int argc, char **argv) {
      }
    }
    //remover (pointer,&eu); //cada remover retira um da pilha
-   printf("PORTA:%i\n", jepslon_porta);
+   printf("PORTA:%i JEP:%i\n", jepslon_porta, jepslon_andar);
    mostrar(pointer);
 return 0;
 }
