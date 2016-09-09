@@ -1,43 +1,37 @@
 #ifndef FUNCOES_H
 #define FUNCOES_H
 
+/* BIBLIOTECAS */
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <malloc.h>
-#include <unistd.h>
+#include <unistd.h> //BIBLIOTECA DO GETOPT
+/* FIM BIBLIOTECAS */
 
-typedef struct elevador{
-  int andares;
-  int capacidade;
+/* Definição das structss */
+typedef struct {
+    int tempo_espera;
+    int tempo_percurso;
+    int tempo_total;
+
+    int onde_ta;  //Onde o passeiro esta
+    int onde_vai; //Onde o passageiro quer ir
+} _passageiros;
+
+typedef struct {
+    int andar_atual;
+    int quant_andares;
+    int capacidade;
 } _elevador;
 
-typedef struct pessoa{
-  int onde_ta;
-  int onde_vai;
-}Pessoa;
+/* Fim das structs */
 
-typedef struct no{
-  Pessoa elemento;
-  struct no *proximo;
-}Node;
-
-typedef struct fila{
-  Node *inicio;
-  Node *final;
-}filinha;
-
-void show_help(char *estrategia);
-
-void VerificaAmbiente(int onde_ta, int onde_vai, int andares);
-int mudou_andar(int onde_ta, int *tava);
-void entrega(filinha *pointer, int *jepslon_andar, int *jepslon_porta, int *elevador_ta, Pessoa *pass);
-
-void criaLista(filinha *pointer);
-int primeiroLista(filinha pointer, Pessoa *passa);
-int filaVazia(filinha pointer);
-int colocar(filinha *pointer, Pessoa pass);
-int remover(filinha *pointer, Pessoa *pass);
-int mostrar(filinha *pointer);
-
+/* Definição das funções */
+void show_help(char *arquivo_passageiro);
+void randomiza_passageiros(_passageiros *passageiro, FILE *IN_passageiros, int tam_pax, int qtd_andar);
+/* ESCALONAMENTOS */
+void fifo(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_FIFO, _elevador elevador);
+void sjf(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_SJF, _elevador elevador);
+/* Fim das funções */
 #endif
