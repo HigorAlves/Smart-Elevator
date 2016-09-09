@@ -1,0 +1,248 @@
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 27.20 	media espera: 21.50 	Media_percurso: 3.70 	Total perc. elevador: 37 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 28.00 	media espera: 22.70 	Media_percurso: 3.30 	Total perc. elevador: 33 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 23.20 	media espera: 17.20 	Media_percurso: 4.00 	Total perc. elevador: 40 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 25.60 	media espera: 19.80 	Media_percurso: 3.80 	Total perc. elevador: 38 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 34.00 	media espera: 27.80 	Media_percurso: 4.20 	Total perc. elevador: 42 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 41.20 	media espera: 36.50 	Media_percurso: 2.70 	Total perc. elevador: 27 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 31.70 	media espera: 26.20 	Media_percurso: 3.50 	Total perc. elevador: 35 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 45.60 	media espera: 38.40 	Media_percurso: 5.20 	Total perc. elevador: 52 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 35.50 	media espera: 29.70 	Media_percurso: 3.80 	Total perc. elevador: 38 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 23.70 	media espera: 16.90 	Media_percurso: 4.80 	Total perc. elevador: 48 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 27.30 	media espera: 21.90 	Media_percurso: 3.40 	Total perc. elevador: 34 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 19.60 	media espera: 14.20 	Media_percurso: 3.40 	Total perc. elevador: 34 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 37.10 	media espera: 30.90 	Media_percurso: 4.20 	Total perc. elevador: 42 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 38.60 	media espera: 33.70 	Media_percurso: 2.90 	Total perc. elevador: 29 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 52.70 	media espera: 46.50 	Media_percurso: 4.20 	Total perc. elevador: 42 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 33.50 	media espera: 28.30 	Media_percurso: 3.20 	Total perc. elevador: 32 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 32.90 	media espera: 27.30 	Media_percurso: 3.60 	Total perc. elevador: 36 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 27.40 	media espera: 21.80 	Media_percurso: 3.60 	Total perc. elevador: 36 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 32.60 	media espera: 26.50 	Media_percurso: 4.10 	Total perc. elevador: 41 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 27.10 	media espera: 21.40 	Media_percurso: 3.70 	Total perc. elevador: 37 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 23.50 	media espera: 19.30 	Media_percurso: 2.20 	Total perc. elevador: 22 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 38.50 	media espera: 32.90 	Media_percurso: 3.60 	Total perc. elevador: 36 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 34.90 	media espera: 28.90 	Media_percurso: 4.00 	Total perc. elevador: 40 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 34.90 	media espera: 28.90 	Media_percurso: 4.00 	Total perc. elevador: 40 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 35.60 	media espera: 29.50 	Media_percurso: 4.10 	Total perc. elevador: 41 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 41.70 	media espera: 34.70 	Media_percurso: 5.00 	Total perc. elevador: 50 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 41.70 	media espera: 34.70 	Media_percurso: 5.00 	Total perc. elevador: 50 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 48.60 	media espera: 42.50 	Media_percurso: 4.10 	Total perc. elevador: 41 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 42.20 	media espera: 35.90 	Media_percurso: 4.30 	Total perc. elevador: 43 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 32.00 	media espera: 26.90 	Media_percurso: 3.10 	Total perc. elevador: 31 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 33.60 	media espera: 28.40 	Media_percurso: 3.20 	Total perc. elevador: 32 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 33.60 	media espera: 28.40 	Media_percurso: 3.20 	Total perc. elevador: 32 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 35.40 	media espera: 29.50 	Media_percurso: 3.90 	Total perc. elevador: 39 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 18.30 	media espera: 13.90 	Media_percurso: 2.40 	Total perc. elevador: 24 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 28.60 	media espera: 23.20 	Media_percurso: 3.40 	Total perc. elevador: 34 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 28.60 	media espera: 23.20 	Media_percurso: 3.40 	Total perc. elevador: 34 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 32.00 	media espera: 26.00 	Media_percurso: 4.00 	Total perc. elevador: 40 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 31.90 	media espera: 26.40 	Media_percurso: 3.50 	Total perc. elevador: 35 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 39.00 	media espera: 32.90 	Media_percurso: 4.10 	Total perc. elevador: 41 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 30.00 	media espera: 25.10 	Media_percurso: 2.90 	Total perc. elevador: 29 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 25.40 	media espera: 21.50 	Media_percurso: 1.90 	Total perc. elevador: 19 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 55.40 	media espera: 49.70 	Media_percurso: 3.70 	Total perc. elevador: 37 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 55.40 	media espera: 49.70 	Media_percurso: 3.70 	Total perc. elevador: 37 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 39.80 	media espera: 32.60 	Media_percurso: 5.20 	Total perc. elevador: 52 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 46.60 	media espera: 40.60 	Media_percurso: 4.00 	Total perc. elevador: 40 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 38.70 	media espera: 32.10 	Media_percurso: 4.60 	Total perc. elevador: 46 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 33.40 	media espera: 27.70 	Media_percurso: 3.70 	Total perc. elevador: 37 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 24.80 	media espera: 19.70 	Media_percurso: 3.10 	Total perc. elevador: 31 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 48.50 	media espera: 41.90 	Media_percurso: 4.60 	Total perc. elevador: 46 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 38.30 	media espera: 32.60 	Media_percurso: 3.70 	Total perc. elevador: 37 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 39.80 	media espera: 33.80 	Media_percurso: 4.00 	Total perc. elevador: 40 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 23.70 	media espera: 18.60 	Media_percurso: 3.10 	Total perc. elevador: 31 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 38.20 	media espera: 32.40 	Media_percurso: 3.80 	Total perc. elevador: 38 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 51.90 	media espera: 45.30 	Media_percurso: 4.60 	Total perc. elevador: 46 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 28.70 	media espera: 22.50 	Media_percurso: 4.20 	Total perc. elevador: 42 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 20.40 	media espera: 16.60 	Media_percurso: 1.80 	Total perc. elevador: 18 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 20.40 	media espera: 16.60 	Media_percurso: 1.80 	Total perc. elevador: 18 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 35.10 	media espera: 28.90 	Media_percurso: 4.20 	Total perc. elevador: 42 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 32.30 	media espera: 26.60 	Media_percurso: 3.70 	Total perc. elevador: 37 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 52.80 	media espera: 45.80 	Media_percurso: 5.00 	Total perc. elevador: 50 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 41.00 	media espera: 35.60 	Media_percurso: 3.40 	Total perc. elevador: 34 	Portas elev: 20
+
+
+
+Qtd Andar: 10 	 Qtd Passageiros: 10 	Media total: 41.00 	media espera: 35.60 	Media_percurso: 3.40 	Total perc. elevador: 34 	Portas elev: 20
+

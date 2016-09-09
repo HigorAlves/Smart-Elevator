@@ -1,5 +1,5 @@
 compile:
-	gcc main.c funcoes.c -o tp1
+	gcc main.c funcoes.c -o -O3 tp1
 clean:
 	rm -rf tp1
 	clear

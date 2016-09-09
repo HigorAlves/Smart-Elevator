@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
      while (fscanf(IN_passageiro,"%d",&pass[i].onde_ta) && fscanf(IN_passageiro,"%d",&pass[i].onde_vai) != EOF){
        i++;
      }
-     //printf("--%i\n", pass[2].onde_ta);
+     printf("--%i\n")
    }
 
 

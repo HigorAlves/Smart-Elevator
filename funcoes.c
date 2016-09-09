@@ -130,3 +130,8 @@ int mudou_andar(int onde_ta, int *tava){
       printf("%d %d\n", aux->elemento.onde_ta, aux->elemento.onde_vai);
     }
   }
+//-----------------------------------------
+
+void sjf(){
+  
+}
