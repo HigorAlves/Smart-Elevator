@@ -147,6 +147,11 @@ void fifo(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_FIFO,
 
 /* FIM ESCALONAMENTO PELO METODO Shortest job first */
 
+void zera_tempo(double *tempoUser, double *tempoSis){
+  *tempoUser = 0;
+  *tempoSis = 0;
+}
+
 /* FUNÇAO GETRUSAGE DO SACHETO */
 void iniciaTempo(_tempo *t){
 	//Inicia a contagem de tempo do usuario e sistema.

@@ -41,6 +41,7 @@ void randomiza_passageiros(_passageiros *passageiro, FILE *IN_passageiros, int t
 /* TEMPO GETRUSAGE */
 void iniciaTempo(_tempo *t);
 void finalizaTempo(_tempo *t,double *tempoU, double *tempoS);
+void zera_tempo(double *tempoUser, double *tempoSis);
 /* ESCALONAMENTOS */
 void fifo(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_FIFO, _elevador elevador);
 void sjf(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_SJF, _elevador elevador);
