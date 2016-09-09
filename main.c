@@ -9,6 +9,7 @@ int main(int argc, char **argv) {
 
     _passageiros *pass;
     _elevador elevador;
+    _tempo tiempo;
     /* FIM das declarações das variaveis */
 
     /* FUNÇÂO GETOPT */
@@ -55,8 +56,12 @@ int main(int argc, char **argv) {
     /* Cria o arquivo do passageiro randomicamente dentro dos limites baseando-se na quantidade de passageiros.  */
     randomiza_passageiros(pass, IN_passageiros, quantidade_passageiros, elevador.quant_andares);
     /* Executa os dois metodos escolhidos pela equipe SJF e FIFO */
+    //Vamos correr o tempo do getrusage
+    iniciaTempo(&tiempo);
     fifo(pass, quantidade_passageiros, OUT_fifo, elevador);
-      fclose(OUT_fifo); //Fechamos o arquivo pois não usaremos ele mais no processo.
+    fclose(OUT_fifo); //Fechamos o arquivo pois não usaremos ele mais no processo.
+    finalizaTempo(&tiempo, &tiempo.tempoU,&tiempo.tempoS);
+    printf("Tempo total:%lf - Tempo Usuario:%lf - Tempo Sistema:%lf\n",tiempo.tempoU + tiempo.tempoS, tiempo.tempoU, tiempo.tempoS);
 
     sjf(pass, quantidade_passageiros, OUT_sjf, elevador);
     fclose(OUT_sjf); //Fechamos o arquivo pois não usaremos ele mais no processo.

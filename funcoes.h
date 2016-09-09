@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include <malloc.h>
+#include <sys/time.h>
+#include <sys/resource.h>
 #include <unistd.h> //BIBLIOTECA DO GETOPT
 /* FIM BIBLIOTECAS */
 
@@ -25,11 +27,20 @@ typedef struct {
     int capacidade;
 } _elevador;
 
+typedef struct tempo{
+	double tempoU,tempoS;
+	struct rusage resources;
+	struct timeval inicioU, inicioS, fimU, fimS;
+}_tempo;
+
 /* Fim das structs */
 
 /* Definição das funções */
 void show_help(char *arquivo_passageiro);
 void randomiza_passageiros(_passageiros *passageiro, FILE *IN_passageiros, int tam_pax, int qtd_andar);
+/* TEMPO GETRUSAGE */
+void iniciaTempo(_tempo *t);
+void finalizaTempo(_tempo *t,double *tempoU, double *tempoS);
 /* ESCALONAMENTOS */
 void fifo(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_FIFO, _elevador elevador);
 void sjf(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_SJF, _elevador elevador);

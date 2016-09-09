@@ -30,39 +30,6 @@ void randomiza_passageiros(_passageiros *passageiro, FILE *IN_passageiros, int q
   }
 }
 
-/* ESCALONAMENTO POR FIRST IN FIRST OUT */
-void fifo(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_FIFO, _elevador elevador){
-  //Tempo de entrada e saida
-  int i;
-  int temp_total = 0, temp_esp = 0, temp_perc = 0;
-  for (i=0; i<quantidade_passageiros; i++) {
-    //Passageiro esta no 1 Andar?
-    if (i == 0) {
-      //Vamos calcular o tempo de espera
-      passageiros[i].tempo_espera = passageiros[i].onde_ta;
-    }
-    else {
-      //Vamos calcular o tempo de espera
-      passageiros[i].tempo_espera = abs(passageiros[i-1].onde_vai - passageiros[i].onde_ta + passageiros[i-1].tempo_total);
-    }
-    //Calcula o tempo de percurso de cada passageiro
-    passageiros[i].tempo_percurso = abs(passageiros[i].onde_vai - passageiros[i].onde_ta);
-    //Total de cada passageiro
-    passageiros[i].tempo_total = passageiros[i].tempo_espera + passageiros[i].tempo_percurso + 2;
-    //Soma o total dos tempos
-    temp_total += passageiros[i].tempo_total;
-    //soma de todos os tempos de espera
-    temp_esp += passageiros[i].tempo_espera;
-    //tempo total de percuso do elevador
-    temp_perc += passageiros[i].tempo_percurso;
-  }
-  //Imprimi no arquivo
-  fprintf(OUT_FIFO,"\n\nQuantidade de Andares:%i \t Quantidade de Passageiros: %i \tMedia total: %.2f \tMedia espera: %.2f \tMedia percurso: %.2f \tTotal Percurso elevador: %i \tTotal portas elevador: %i\n\n"
-          ,elevador.quant_andares, quantidade_passageiros, (float)temp_total/quantidade_passageiros, (float)temp_esp/quantidade_passageiros, (float)temp_perc/quantidade_passageiros, temp_perc, quantidade_passageiros * 2);
-}
-
-/* ESCALONAMENTO PELO METODO Shortest job first */
-
 /* Função de um codigo de Heap adptado, heap escolhido pois assim podemos ordenar de maneira rapida arquivos muito grandes */
 void refaz(int esq, int dir, _passageiros *a) {
   /* Variaveis */
@@ -115,8 +82,7 @@ void Heapsort(_passageiros *a, int *n) {
 
 void sjf(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_SJF, _elevador elevador){
   /* Declaração das variaveis */
-  int j, i;
-  int temp_total = 0, temp_esp = 0, temp_perc = 0;
+  int j, i, temp_total = 0, temp_esp = 0, temp_perc = 0;
   /* FIM VARIAVEIS */
 
   //vamos usar o HEAP para ordenar todo mundo de acordo com os andares :D
@@ -134,7 +100,7 @@ void sjf(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_SJF, _
       //Calcula o tempo de espera do passajeiro
       passageiros[i].tempo_espera = abs(passageiros[i].onde_ta - passageiros[i-1].onde_vai) + passageiros[i-1].tempo_total;
     }else{
-      //calcula tempo de espera do passageiro cujo andar atual < proximo andar
+      //calcula tempo de espera do passageiro
       passageiros[i].tempo_espera = abs(passageiros[i].onde_ta - passageiros[i].onde_vai);
     }
     //Calcular os tempos do passageiro
@@ -144,6 +110,60 @@ void sjf(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_SJF, _
     temp_esp += passageiros[i].tempo_espera;
     temp_perc += passageiros[i].tempo_percurso;
   }
+  //Imprimi no arquivo, o float enfrente cada divisão é para tratar erro e ter casas decimais
   fprintf(OUT_SJF,"Qtd Andar: %i \t Qtd Passageiros: %i \tMedia total: %.2f \tmedia espera: %.2f \tMedia_percurso: %.2f \tTotal perc. elevador: %i \tPortas elev: %i\n\n"
           ,elevador.quant_andares, quantidade_passageiros, (float)temp_total/quantidade_passageiros, (float)temp_esp/quantidade_passageiros, (float)temp_perc/quantidade_passageiros, temp_perc, quantidade_passageiros * 2);
+}
+
+/* ESCALONAMENTO POR FIRST IN FIRST OUT */
+void fifo(_passageiros *passageiros, int quantidade_passageiros, FILE *OUT_FIFO, _elevador elevador){
+  //Tempo de entrada e saida
+  int i, temp_total = 0, temp_esp = 0, temp_perc = 0;
+  for (i=0; i<quantidade_passageiros; i++) {
+    //Passageiro esta no 1 Andar?
+    if (i == 0) {
+      //Vamos calcular o tempo de espera
+      passageiros[i].tempo_espera = passageiros[i].onde_ta;
+    }
+    else {
+      //Vamos calcular o tempo de espera
+      passageiros[i].tempo_espera = abs(passageiros[i-1].onde_vai - passageiros[i].onde_ta + passageiros[i-1].tempo_total);
+    }
+    //Calcula o tempo de percurso de cada passageiro
+    passageiros[i].tempo_percurso = abs(passageiros[i].onde_vai - passageiros[i].onde_ta);
+    //Total de cada passageiro
+    passageiros[i].tempo_total = passageiros[i].tempo_espera + passageiros[i].tempo_percurso + 2;
+    //Soma o total dos tempos
+    temp_total += passageiros[i].tempo_total;
+    //soma de todos os tempos de espera
+    temp_esp += passageiros[i].tempo_espera;
+    //tempo total de percuso do elevador
+    temp_perc += passageiros[i].tempo_percurso;
+  }
+  //Imprimi no arquivo, o float enfrente cada divisão é para tratar erro e ter casas decimais
+  fprintf(OUT_FIFO,"\n\nQuantidade de Andares:%i \t Quantidade de Passageiros: %i \tMedia total: %.2f \tMedia espera: %.2f \tMedia percurso: %.2f \tTotal Percurso elevador: %i \tTotal portas elevador: %i\n\n"
+          ,elevador.quant_andares, quantidade_passageiros, (float)temp_total/quantidade_passageiros, (float)temp_esp/quantidade_passageiros, (float)temp_perc/quantidade_passageiros, temp_perc, quantidade_passageiros * 2);
+}
+
+/* FIM ESCALONAMENTO PELO METODO Shortest job first */
+
+/* FUNÇAO GETRUSAGE DO SACHETO */
+void iniciaTempo(_tempo *t){
+	//Inicia a contagem de tempo do usuario e sistema.
+	getrusage(RUSAGE_SELF, &(t->resources));
+	t->inicioU = t->resources.ru_utime;
+	t->inicioS = t->resources.ru_stime;
+}
+
+void finalizaTempo(_tempo *t,double *tempoU, double *tempoS){
+	// Finaliza a contagem de tempo do usuario e sistema.
+	getrusage(RUSAGE_SELF, &(t->resources));
+	t->fimU = t->resources.ru_utime;
+	t->fimS = t->resources.ru_stime;
+
+	// Calcula o tempo do usuario.
+	*tempoU = (double) (t->fimU.tv_sec - t->inicioU.tv_sec) + 1.e-6 * (double) (t->fimU.tv_usec - t->inicioU.tv_usec);
+
+	// Calcula o tempo do sistema.
+	*tempoS = (double) (t->fimS.tv_sec - t->inicioS.tv_sec) + 1.e-6 * (double) (t->fimS.tv_usec - t->inicioS.tv_usec);
 }
